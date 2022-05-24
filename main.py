@@ -42,17 +42,16 @@ class StripeSolution:
         self.currency = data["currency"]
         self.sender = data["sender"]
         self.receiver = data["receiver"]
-        self.api_key = data["api_key"]
+        self.customer_api_key = data["customer_api_key"]
 
     def send_order(self):
-        stripe.api_key = self.api_key
+        stripe.api_key = SELLER_STRIPE_KEY
         try:
             charge = stripe.Charge.create(
                 amount=self.amount,
                 currency=self.currency,
                 description="Customer buy an item",
-                source=SELLER_STRIPE_KEY,
-                idempotency_key=''
+                source=self.customer_api_key,
             )
         except:
             raise ValueError("Missing or illegal value in data")
