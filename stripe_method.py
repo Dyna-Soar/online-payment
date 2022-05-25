@@ -1,3 +1,10 @@
+"""
+    TODO: pay with customer's credit card information
+          As a customer i want to use my credit card, so i can buy the product
+    TODO: pay with customer's stripe account
+          As a customer i want to use my paypal account, so i can buy the product
+"""
+
 import os
 
 import stripe
