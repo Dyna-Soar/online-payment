@@ -1,12 +1,8 @@
-from paypal_method import PaypalSolution
-from stripe_method import StripeSolution
+import gateway
 
 
-class PaymentGateway:
-    def __init__(self, method, data):
-        if method == "paypal":
-            PaypalSolution(data)
-
-        elif method == "stripe":
-            StripeSolution(data)
-
+if __name__ == "__main__":
+    gateway.PaymentGateway(input("method: "), input("data: "))
+else:
+    def send_to_gateway(method, data):
+        gateway.PaymentGateway(method, data)
